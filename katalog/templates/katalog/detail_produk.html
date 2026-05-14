@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ produk.nama }} - Detail</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="/">KatalogKreatif</a>
+        <div class="navbar-nav ms-auto">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/produk/">Produk</a>
+          <a class="nav-link" href="/kontak/">Kontak</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="card-body p-4">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-5 fw-bold">{{ produk.nama }}</h1>
+          <h3 class="text-success mb-4">{{ produk.harga }}</h3>
+
+          <h5 class="fw-bold">Deskripsi Singkat:</h5>
+          <p class="lead">{{ produk.deskripsi }}</p>
+
+          <hr />
+
+          <!-- Informasi Tambahan yang HANYA ada di halaman detail -->
+          <h5 class="fw-bold text-primary mb-3">Informasi Spesifikasi:</h5>
+          <table class="table table-striped border">
+            <tr>
+              <th width="30%">Detail Teknis</th>
+              <td>{{ produk.spesifikasi }}</td>
+            </tr>
+            <tr>
+              <th>Ketersediaan Stok</th>
+              <td>
+                {% if produk.stok > 0 %}
+                <span class="badge bg-success"
+                  >Tersedia ({{ produk.stok }} unit)</span
+                >
+                {% else %}
+                <span class="badge bg-danger">Habis</span>
+                {% endif %}
+              </td>
+            </tr>
+            <tr>
+              <th>Garansi</th>
+              <td>1 Tahun Resmi</td>
+            </tr>
+          </table>
+
+          <div class="mt-4">
+            <a href="/produk/" class="btn btn-secondary"
+              >&larr; Kembali ke Daftar</a
+            >
+            <button class="btn btn-success px-4">Tambah ke Keranjang</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
