@@ -1,33 +1,130 @@
+{% load humanize %} 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - KatalogKreatif</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">KatalogKreatif</a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link active" href="/">Home</a>
-                <a class="nav-link" href="/produk/">Produk</a>
-                <a class="nav-link" href="/kontak/">Kontak</a>
+            <a class="navbar-brand fw-bold fs-4 text-primary" href="/">Katalog<span class="text-white">Kreatif</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active fw-semibold text-uppercase px-3" href="/">Home</a>
+                    <a class="nav-link fw-semibold text-uppercase px-3" href="/produk/">Produk</a>
+                    <a class="nav-link fw-semibold text-uppercase px-3" href="/kontak/">Kontak</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <div class="container mt-5">
-        <div class="p-5 mb-4 bg-white border rounded-3 shadow-sm text-center">
-            <h1 class="display-4 fw-bold">Selamat Datang di KatalogKreatif</h1>
-            <p class="lead text-muted">Destinasi utama untuk mencari gadget dan aksesoris teknologi berkualitas tinggi.</p>
-            <hr class="my-4">
-            <a class="btn btn-primary btn-lg" href="/produk/" role="button">Lihat Koleksi Kami</a>
+    <div class="hero-gradient text-white py-5 mb-5 shadow">
+        <div class="container py-5 text-center">
+            <h1 class="display-3 fw-extrabold mb-3">Temukan Gadget Impian Anda</h1>
+            <p class="lead text-subtle fs-4 mb-4 text-white-50">Destinasi utama untuk mencari gadget dan aksesoris teknologi berkualitas tinggi dengan garansi resmi.</p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a class="btn btn-primary btn-lg px-4 gap-3 fw-bold shadow" href="/produk/" role="button">
+                    <i class="bi bi-bag-check-fill me-2"></i>Mulai Jelajah Katalog
+                </a>
+                <a class="btn btn-outline-light btn-lg px-4 fw-bold" href="/kontak/" role="button">Hubungi Kami</a>
+            </div>
         </div>
     </div>
+
+    <div class="container mb-5">
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="card h-100 p-4 border-0 shadow-sm hover-card rounded-3">
+                    <div class="card-body">
+                        <div class="feature-icon bg-primary bg-gradient text-white fs-2 rounded-3 px-3 py-2 d-inline-block mb-3">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Kualitas Terjamin</h5>
+                        <p class="text-muted small mb-0">Semua produk gadget yang kami sediakan melewati kontrol kualitas ketat dan dijamin 100% original.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 border-0 shadow-sm hover-card rounded-3">
+                    <div class="card-body">
+                        <div class="feature-icon bg-success bg-gradient text-white fs-2 rounded-3 px-3 py-2 d-inline-block mb-3">
+                            <i class="bi bi-patch-check"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Garansi Fleksibel</h5>
+                        <p class="text-muted small mb-0">Sesuaikan kebutuhan ketenangan Anda dengan opsi pilihan durasi garansi langsung saat memilih produk.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card h-100 p-4 border-0 shadow-sm hover-card rounded-3">
+                    <div class="card-body">
+                        <div class="feature-icon bg-warning bg-gradient text-white fs-2 rounded-3 px-3 py-2 d-inline-block mb-3">
+                            <i class="bi bi-truck"></i>
+                        </div>
+                        <h5 class="fw-bold text-dark">Pengiriman Aman</h5>
+                        <p class="text-muted small mb-0">Layanan pengemasan premium ekstra bubble wrap memastikan gadget mendarat mulus di tangan Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mb-5">
+        <div class="border-bottom pb-3 mb-4 d-flex justify-content-between align-items-center">
+            <h3 class="fw-bold text-dark mb-0"><i class="bi bi-fire text-danger me-2"></i>Koleksi Terbaru</h3>
+            <a href="/produk/" class="btn btn-sm btn-link text-decoration-none fw-semibold">Lihat Semua <i class="bi bi-arrow-right"></i></a>
+        </div>
+        
+        <div class="row g-4">
+            {% for p in produk_terbaru %}
+            <div class="col-md-4">
+                <div class="card h-100 border-0 shadow-sm hover-card rounded-3">
+                    <div class="card-body p-4">
+                        <span class="badge bg-danger mb-2">Baru</span>
+                        <h5 class="card-title fw-bold text-dark mb-2">{{ p.nama }}</h5>
+                        <p class="card-text text-primary fw-bold fs-5 mb-2">Rp{{ p.harga|intcomma }},00</p>
+                        <p class="card-text text-muted small mb-0">{{ p.deskripsi|truncatewords:12 }}</p>
+                    </div>
+                    <div class="card-footer bg-transparent border-top-0 p-4 pt-0">
+                        <a href="/produk/{{ p.id }}/" class="btn btn-outline-dark w-100 fw-semibold">Lihat Detail</a>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="col-12 text-center py-4 text-muted">
+                <p class="mb-0"><i class="bi bi-box-seam fs-1 d-block mb-2"></i>Belum ada data produk terbaru di database.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3 bg-dark text-white-50 text-center border-top border-secondary">
+        <div class="container">
+            <small>&copy; 2026 <strong>KatalogKreatif</strong>. Proyek Praktikum PPL - Hak Cipta Dilindungi.</small>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

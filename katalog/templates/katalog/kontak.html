@@ -4,110 +4,167 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak Kami - KatalogKreatif</title>
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <style>
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+        .social-btn {
+            transition: all 0.2s ease;
+        }
+        .social-btn:hover {
+            transform: scale(1.15);
+        }
+    </style>
 </head>
-<body class="bg-light">
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="bg-light d-flex flex-column min-vh-100">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="/">KatalogKreatif</a>
-            <div class="navbar-nav ms-auto">
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="/produk/">Produk</a>
-                <a class="nav-link active" href="/kontak/">Kontak</a>
+            <a class="navbar-brand fw-bold fs-4 text-primary" href="/">Katalog<span class="text-white">Kreatif</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link fw-semibold text-uppercase px-3" href="/">Home</a>
+                    <a class="nav-link fw-semibold text-uppercase px-3" href="/produk/">Produk</a>
+                    <a class="nav-link active fw-semibold text-uppercase px-3" href="/kontak/">Kontak</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- Contact Content -->
-    <div class="container mt-5">
+    <div class="container mt-5 mb-5">
         <div class="text-center mb-5">
-            <h1 class="fw-bold">Hubungi Kami</h1>
-            <p class="text-muted">Punya pertanyaan? Kami siap membantu Anda kapan saja.</p>
+            <h1 class="fw-bold text-dark">Hubungi Kami</h1>
+            <p class="text-muted">Punya pertanyaan seputar spesifikasi gadget atau garansi? Tim kami siap melayani Anda.</p>
         </div>
 
-        <div class="row justify-content-center">
-            <!-- Info Kontak -->
+        <div id="successAlert" class="alert alert-success alert-dismissible fade show d-none shadow-sm mb-4" role="alert">
+            <i class="bi bi-check-circle-fill me-2"></i> <strong>Terima kasih!</strong> Pesan Anda berhasil disimulasikan dan dikirim.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <div class="row g-4 justify-content-center">
             <div class="col-md-5">
-                <div class="card border-0 shadow-sm p-4 mb-4 h-100">
-                    <h4 class="mb-4 fw-bold text-primary">Informasi Kontak</h4>
+                <div class="card border-0 shadow-sm p-4 h-100 hover-card rounded-3">
+                    <h4 class="mb-4 fw-bold text-primary border-bottom pb-2">Informasi Kontak</h4>
                     
-                    <div class="d-flex mb-4">
-                        <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-white bg-primary rounded-circle p-2 me-3" style="width: 45px; height: 45px;">
-                            <i class="bi bi-geo-alt"></i>
+                    <div class="d-flex mb-4 align-items-start">
+                        <div class="text-white bg-primary rounded-circle p-2 me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; min-width: 45px;">
+                            <i class="bi bi-geo-alt fs-5"></i>
                         </div>
                         <div>
-                            <h6 class="mb-0">Alamat</h6>
-                            <p class="text-muted mb-0">Jl. Teknologi No. 101, Jakarta, Indonesia</p>
+                            <h6 class="mb-1 fw-bold">Alamat Kantor</h6>
+                            <p class="text-muted small mb-0">Jl. Teknologi No. 101, Gedung Cyber, Jakarta, Indonesia</p>
                         </div>
                     </div>
 
-                    <div class="d-flex mb-4">
-                        <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-white bg-primary rounded-circle p-2 me-3" style="width: 45px; height: 45px;">
-                            <i class="bi bi-envelope"></i>
+                    <div class="d-flex mb-4 align-items-start">
+                        <div class="text-white bg-success rounded-circle p-2 me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; min-width: 45px;">
+                            <i class="bi bi-envelope fs-5"></i>
                         </div>
                         <div>
-                            <h6 class="mb-0">Email</h6>
-                            <p class="text-muted mb-0">support@katalogkreatif.com</p>
+                            <h6 class="mb-1 fw-bold">Email Resmi</h6>
+                            <p class="text-muted small mb-0">support@katalogkreatif.com</p>
                         </div>
                     </div>
 
-                    <div class="d-flex mb-4">
-                        <div class="feature-icon-small d-inline-flex align-items-center justify-content-center text-white bg-primary rounded-circle p-2 me-3" style="width: 45px; height: 45px;">
-                            <i class="bi bi-telephone"></i>
+                    <div class="d-flex mb-4 align-items-start">
+                        <div class="text-white bg-info rounded-circle p-2 me-3 d-flex align-items-center justify-content-center shadow-sm" style="width: 45px; height: 45px; min-width: 45px;">
+                            <i class="bi bi-telephone fs-5"></i>
                         </div>
                         <div>
-                            <h6 class="mb-0">Telepon</h6>
-                            <p class="text-muted mb-0">(021) 1234567</p>
+                            <h6 class="mb-1 fw-bold">Hotline Layanan</h6>
+                            <p class="text-muted small mb-0">(021) 1234567 (Senin - Jumat)</p>
                         </div>
                     </div>
 
-                    <div class="mt-auto">
-                        <h6 class="fw-bold mb-3">Ikuti Kami</h6>
-                        <div class="d-flex gap-2">
-                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle"><i class="bi bi-facebook"></i></a>
-                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle"><i class="bi bi-instagram"></i></a>
-                            <a href="#" class="btn btn-outline-primary btn-sm rounded-circle"><i class="bi bi-twitter-x"></i></a>
+                    <div class="mb-4">
+                        <a href="https://wa.me/6281234567890?text=Halo%20Admin%20KatalogKreatif,%20saya%20ingin%20bertanya%20mengenai%20produk%20gadget." target="_blank" class="btn btn-success w-100 py-2 fw-semibold shadow-sm">
+                            <i class="bi bi-whatsapp me-2"></i>Hubungi Instan via WhatsApp
+                        </a>
+                    </div>
+
+                    <div class="mt-auto pt-3 border-top">
+                        <h6 class="fw-bold text-dark mb-3">Ikuti Media Sosial Kami</h6>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="btn btn-outline-primary btn-md rounded-circle social-btn"><i class="bi bi-facebook"></i></a>
+                            <a href="#" class="btn btn-outline-danger btn-md rounded-circle social-btn"><i class="bi bi-instagram"></i></a>
+                            <a href="#" class="btn btn-outline-dark btn-md rounded-circle social-btn"><i class="bi bi-twitter-x"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Form Sederhana (Hanya Visual) -->
-            <div class="col-md-6">
-                <div class="card border-0 shadow-sm p-4 h-100">
-                    <h4 class="mb-4 fw-bold">Kirim Pesan</h4>
-                    <form>
-                        <div class="mb-3">
-                            <label class="form-label">Nama Lengkap</label>
-                            <input type="text" class="form-control" placeholder="Masukkan nama Anda">
+            <div class="col-md-7">
+                <div class="card border-0 shadow-sm p-4 h-100 hover-card rounded-3">
+                    <h4 class="mb-4 fw-bold text-dark border-bottom pb-2">Kirim Pesan</h4>
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-semibold text-secondary small">Nama Lengkap</label>
+                                <input type="text" id="inputNama" class="form-control py-2 shadow-sm" placeholder="Masukkan nama" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label fw-semibold text-secondary small">Alamat Email</label>
+                                <input type="email" id="inputEmail" class="form-control py-2 shadow-sm" placeholder="nama@email.com" required>
+                            </div>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Alamat Email</label>
-                            <input type="email" class="form-control" placeholder="nama@email.com">
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-secondary small">Isi Pesan Anda</label>
+                            <textarea id="inputPesan" class="form-control shadow-sm" rows="5" placeholder="Tuliskan detail pertanyaan atau keluhan Anda di sini..." required></textarea>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label">Pesan</label>
-                            <textarea class="form-control" rows="4" placeholder="Tuliskan pesan atau pertanyaan Anda..."></textarea>
-                        </div>
-                        <button type="button" class="btn btn-primary w-100 py-2 fw-bold">Kirim Sekarang</button>
+                        <button type="submit" class="btn btn-dark w-100 py-2 fw-bold text-uppercase shadow-sm">
+                            <i class="bi bi-send-fill me-2"></i> Kirim Pesan Sekarang
+                        </button>
                     </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm rounded-3 overflow-hidden">
+                    <div class="bg-secondary-subtle text-center py-5">
+                        <i class="bi bi-map display-4 text-secondary mb-2"></i>
+                        <h5 class="fw-bold">Lokasi Showroom Kami</h5>
+                        <p class="text-muted small px-3">Gedung Pusat Teknologi Integrasi, Lantai 3, Zona Kreatif, Jakarta.</p>
+                        <span class="badge bg-dark rounded-pill px-3 py-2">Peta Lokasi Terintegrasi</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer Simple -->
-    <footer class="mt-5 py-4 bg-white border-top">
-        <div class="container text-center">
-            <p class="text-muted mb-0">&copy; 2026 KatalogKreatif. All rights reserved.</p>
+    <footer class="footer mt-auto py-3 bg-dark text-white-50 text-center border-top border-secondary">
+        <div class="container">
+            <small>&copy; 2026 <strong>KatalogKreatif</strong>. Proyek Praktikum PPL - Hak Cipta Dilindungi.</small>
         </div>
     </footer>
 
-    <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah reload halaman nyata
+            
+            // Tampilkan alert sukses
+            const alertBox = document.getElementById('successAlert');
+            alertBox.classList.remove('d-none');
+            
+            // Reset form setelah dikirim
+            document.getElementById('contactForm').reset();
+            
+            // Gulir otomatis ke atas agar alert terlihat jelas oleh pengguna
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>

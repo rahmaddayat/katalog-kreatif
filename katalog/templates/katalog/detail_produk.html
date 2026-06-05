@@ -1,3 +1,5 @@
+{% load humanize %}
+
 <!doctype html>
 <html lang="id">
   <head>
@@ -15,53 +17,86 @@
         <a class="navbar-brand fw-bold" href="/">KatalogKreatif</a>
         <div class="navbar-nav ms-auto">
           <a class="nav-link" href="/">Home</a>
-          <a class="nav-link" href="/produk/">Produk</a>
+          <a class="nav-link active" href="/produk/">Produk</a>
           <a class="nav-link" href="/kontak/">Kontak</a>
         </div>
       </div>
     </nav>
 
-    <div class="card-body p-4">
-      <div class="row">
-        <div class="col-md-12">
-          <h1 class="display-5 fw-bold">{{ produk.nama }}</h1>
-          <h3 class="text-success mb-4">{{ produk.harga }}</h3>
+    <div class="container mt-5 mb-5">
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+          <div class="card shadow-sm border-0">
+            <div class="card-header bg-primary text-white py-3">
+              <h5 class="mb-0 fw-bold">Detail Informasi Produk</h5>
+            </div>
 
-          <h5 class="fw-bold">Deskripsi Singkat:</h5>
-          <p class="lead">{{ produk.deskripsi }}</p>
+            <div class="card-body p-4">
+              <div class="row">
+                <div class="col-md-12">
+                  <h1 class="display-5 fw-bold text-dark">{{ produk.nama }}</h1>
+                  <h3 class="text-success mb-4 fw-bold">
+                    Rp{{ produk.harga|intcomma }},00
+                  </h3>
 
-          <hr />
+                  <h5 class="fw-bold">Deskripsi Singkat:</h5>
+                  <p class="lead text-muted">{{ produk.deskripsi }}</p>
 
-          <!-- Informasi Tambahan yang HANYA ada di halaman detail -->
-          <h5 class="fw-bold text-primary mb-3">Informasi Spesifikasi:</h5>
-          <table class="table table-striped border">
-            <tr>
-              <th width="30%">Detail Teknis</th>
-              <td>{{ produk.spesifikasi }}</td>
-            </tr>
-            <tr>
-              <th>Ketersediaan Stok</th>
-              <td>
-                {% if produk.stok > 0 %}
-                <span class="badge bg-success"
-                  >Tersedia ({{ produk.stok }} unit)</span
-                >
-                {% else %}
-                <span class="badge bg-danger">Habis</span>
-                {% endif %}
-              </td>
-            </tr>
-            <tr>
-              <th>Garansi</th>
-              <td>1 Tahun Resmi</td>
-            </tr>
-          </table>
+                  <hr />
 
-          <div class="mt-4">
-            <a href="/produk/" class="btn btn-secondary"
-              >&larr; Kembali ke Daftar</a
-            >
-            <button class="btn btn-success px-4">Tambah ke Keranjang</button>
+                  <h5 class="fw-bold text-primary mb-3">
+                    Informasi Spesifikasi:
+                  </h5>
+                  <table class="table table-striped border align-middle">
+                    <tr>
+                      <th width="30%">Detail Teknis</th>
+                      <td>{{ produk.spesifikasi }}</td>
+                    </tr>
+                    <tr>
+                      <th>Ketersediaan Stok</th>
+                      <td>
+                        {% if produk.stok > 0 %}
+                        <span class="badge bg-success"
+                          >Tersedia ({{ produk.stok }} unit)</span
+                        >
+                        {% else %}
+                        <span class="badge bg-danger">Habis</span>
+                        {% endif %}
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Garansi</th>
+                      <td>
+                        {% if produk.garansi == 0 %}
+                        <span class="text-danger fw-semibold"
+                          >Tidak ada garansi</span
+                        >
+                        {% else %}
+                        <span class="text-dark"
+                          >{{ produk.garansi }} Tahun Resmi</span
+                        >
+                        {% endif %}
+                      </td>
+                    </tr>
+                  </table>
+
+                  <div class="mt-4 d-flex gap-2">
+                    <a href="/produk/" class="btn btn-secondary"
+                      >&larr; Kembali ke Daftar</a
+                    >
+                    {% if produk.stok > 0 %}
+                    <button class="btn btn-success px-4">
+                      Tambah ke Keranjang
+                    </button>
+                    {% else %}
+                    <button class="btn btn-success px-4" disabled>
+                      Tambah ke Keranjang
+                    </button>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
